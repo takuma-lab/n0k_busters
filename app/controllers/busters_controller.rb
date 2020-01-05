@@ -1,0 +1,2 @@
+class BustersController < ApplicationController
+end
