@@ -1,33 +1,4 @@
-.left{
-  float:left;
-}
 
 .right{
-  float:right;
-  margin-right:150px;
-}
-
-icons{
-  width: 100%;
-  height: 500px;
-  border: 1px solid #333333;  
-  position: relative;
-  box-sizing:border-box;
-  background-color:#778899;
-}
-
-.clearfix:after{
-	content: "";
-	clear: both;
-	display: block;
-}
-
-.center{
-  position: absolute;
-  top: 30%;
-  left: 50%;
-  -webkit-transform : translate(-50%,-50%);
-  transform : translate(-50%,-50%);
-  width: 100px;
-  text-align: center;
+  background-color:#808080;
 }

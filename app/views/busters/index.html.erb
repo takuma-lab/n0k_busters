@@ -1,21 +1,40 @@
-<div class="icons clearfix">
- <div class="icon">
-  <div class="col-xs-2 col-lg-1 left">
-   <img src="/assets/log.jpg" >
-  </div>
-  <div class="col-xs-2 col-lg-1 right">
-   <img src="/assets/police.jpg">
-  </div>
- </div>
-  <div class="col-xs-4 col-lg-2 center">
-   <img src="/assets/microphone.jpg">
-  </div>
- <div class="icon">
-  <div class="col-xs-2 col-lg-1 left">
-   <img src="/assets/sound.jpg">
-  </div>
-  <div class="col-xs-2 col-lg-1 right">
-   <img src="/assets/nkoku.png">
-  </div>
- </div>
-</div>
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <script src="js/intro.js"></script>
+    <link rel="stylesheet" href="css/introjs.css" type="text/css">
+  </head>
+  <body>
+   <div class="icons">
+    <div class="row">
+     <div class="col-sm-12 col-md-6 col-lg-4">
+      <img src="/assets/log.jpg" data-intro="過去の記録が見れます" data-step="1" class="img-fluid mx-auto d-block">
+     </div>
+     <div class="col-sm-12 col-md-6 col-lg-4 ml-lg-auto">
+      <img src="/assets/police.jpg" data-intro="110番通報します" data-step="2" class="img-fluid mx-auto d-block">
+     </div>
+    </div>
+    <div class="row">
+     <div class="mx-auto">
+      <img src="/assets/microphone.jpg">
+     </div>
+    </div>
+    <div class="row">
+     <div class="col-sm-12 col-md-6 col-lg-4">
+      <img src="/assets/sound.jpg"  data-intro="ボイス「録音を開始します」ON/OFF" data-step="3" class="img-fluid mx-auto d-block">
+     </div>
+     <div class="col-sm-12 col-md-6 col-lg-4 ml-lg-auto">
+      <img src="/assets/nkoku.png"  data-intro="N国党に通報します" data-step="4" class="img-fluid mx-auto d-block">
+     </div>
+    </div>
+   </div>
+   <script>
+    jQuery(function(){
+        introJs().start();
+    });
+   </script>
+   </body>
+</html>
