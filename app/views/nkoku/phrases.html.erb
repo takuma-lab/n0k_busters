@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+	<script type="text/javascript">
+// グローバル変数
+var syncerSounds = {
+	flag: {} ,
+	currentTime: null ,
+} ;
+
+// 即時関数
+(function()
+{
+	// 設定
+	var setClass = 'sounds' ;							// ボタン要素のクラス名
+	var setDir = './' ;									// 音声ファイルがあるフォルダ(最後は[/])
+	var setStopButtonId = 'stop-button-syncer' ;			// 停止ボタンに付けるID
+
+	// クラス名が付いた要素を取得する
+	var sounds = document.getElementsByClassName( setClass ) ;
+
+	// 全ての要素にクリックイベントを設定する
+	for( var i=0,l=sounds.length ; l>i ; i++ )
+	{
+		// クリックイベントの設定
+		sounds[i].onclick = function()
+		{
+			// ファイル名の取得
+			var file = this.getAttribute( 'data-file' ) ;
+
+			// 一度生成したエレメントは生成しない
+			if( typeof( syncerSounds.flag[ file ] )=="undefined" || syncerSounds.flag[ file ] != 1 )
+			{
+				// 生成するエレメントの調整
+				var audio = document.createElement( 'audio' ) ;
+
+				// エレメントのIDを指定
+				audio.id = file ;
+
+				audio.src = '/assets/' + file + '.wav' ;
+
+				// [audio]を生成する
+				document.body.appendChild( audio ) ;
+			}
+
+			// 初回再生以外だったら音声ファイルを巻き戻す
+			stopCurrentSound() ;
+
+			// 音声ファイルを再生[play()]する
+			document.getElementById( file ).play() ;
+
+			// 最近再生した音声としてセット
+			syncerSounds.currentTime = file ;
+
+			// 初回再生が終わった判定用に[syncerSounds.flag]の値を0から1に変更する
+			// エレメントを何度も生成しないようにするため
+			syncerSounds.flag[ file ] = 1 ;
+
+			// 終了
+			return false ;
+		}
+	}
+
+	// 前回の音声を停止する関数
+	function stopCurrentSound()
+	{
+		var currentSound = document.getElementById( syncerSounds.currentTime ) ;
+
+		if( currentSound != null )
+		{
+			currentSound.pause() ;
+			currentSound.currentTime = 0 ;
+		}
+	}
+
+
+	// 停止ボタンをクリックした時のイベント
+	document.getElementById( setStopButtonId ).onclick = function()
+	{
+		stopCurrentSound() ;
+		return false ;
+	}
+
+})() ;	</script>
+</head>
+  <body>
+      <div class="row row-0">
+        <div class="col-sm-12 col-md-4 col-lg-4">
+          <img src="/assets/gekitai.png">
+        </div>
+
+        <p><a href="#" class="sounds" data-file="court">裁判</a></p>
+        <p><a href="#" class="sounds" data-file="nocontract">しません</a></p>
+        <p><a href="#" class="sounds" data-file="getout">お帰り</a></p>
+        </div>
+  </body>
+</html>

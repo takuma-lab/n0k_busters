@@ -1,0 +1,2 @@
+module VoiceDataHelper
+end

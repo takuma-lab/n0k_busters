@@ -6,28 +6,45 @@
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
     <script src="js/intro.js"></script>
     <link rel="stylesheet" href="css/introjs.css" type="text/css">
+    <script src="click.js"></script>
   </head>
   <body>
    <div class="icons">
     <div class="row">
-     <div class="col-sm-12 col-md-6 col-lg-4">
-      <img src="/assets/log.jpg" data-intro="過去の記録が見れます" data-step="1" class="img-fluid mx-auto d-block">
+     <div class="col-sm-12 col-md-6 col-lg-4" data-intro="過去の記録が見れます" data-step="1" class="img-fluid mx-auto d-block">
+      <%= link_to image_tag('/assets/log.jpg'), '/logs' %>
+      <%= link_to image_tag('/assets/log.jpg'), '/voice_data' %>
      </div>
      <div class="col-sm-12 col-md-6 col-lg-4 ml-lg-auto">
       <img src="/assets/police.jpg" data-intro="110番通報します" data-step="2" class="img-fluid mx-auto d-block">
      </div>
     </div>
-    <div class="row">
-     <div class="mx-auto">
-      <img src="/assets/microphone.jpg">
+    <div class="row-center">
+     <div class="sound">
+      <img src="/assets/microphone.jpg" class="img-fluid mx-auto d-block push" id="record">
+      <div class="switch">
+       <input type="button" id="record" onclick="switch_js_on()" value="on" />
+       <input type="button" id="stop" onclick="switch_js_off()" value="off" />
+        <div style="height:30px;">
+         <span id="switch_js" class="switch-on">REC</span>
+      <audio id="audio" controls></audio>
+        </div>
+      </div>
      </div>
     </div>
     <div class="row">
      <div class="col-sm-12 col-md-6 col-lg-4">
-      <img src="/assets/sound.jpg"  data-intro="ボイス「録音を開始します」ON/OFF" data-step="3" class="img-fluid mx-auto d-block">
+      <div  id="switch" data-intro="ボイス「録音を開始します」ON/OFF" data-step="3" class="img-fluid mx-auto d-block"></div>
      </div>
-     <div class="col-sm-12 col-md-6 col-lg-4 ml-lg-auto">
-      <img src="/assets/nkoku.png"  data-intro="N国党に通報します" data-step="4" class="img-fluid mx-auto d-block">
+     <script type="text/javascript">
+     $(function() {
+       $("#switch").click(function() {
+        $(this).toggleClass("active");
+       });
+     });
+     </script>
+     <div class="col-sm-12 col-md-6 col-lg-4 ml-lg-auto" data-intro="N国党に通報します" data-step="4" class="img-fluid mx-auto d-block">
+      <%= link_to image_tag('/assets/nkoku.png'), '/nkoku' %>
      </div>
     </div>
    </div>

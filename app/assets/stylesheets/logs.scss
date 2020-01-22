@@ -1,0 +1,39 @@
+
+.one{
+  background-color: #f7f7f7;
+}
+.two{
+  background-color:#FFCC80;
+}
+
+.container{
+  background-color: #ccc;
+  padding-left:0px;
+  margin-left:0px;
+}
+
+.parent{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.child{
+  width:60px;
+}
+
+.page{
+  text-align:center;
+}
+
+#switch{
+  cursor:pointer;
+  width:225px;
+  height:225px;
+  background-image:url(/assets/sound.jpg);
+}
+
+.active{
+	background-position:bottom;
+}
+

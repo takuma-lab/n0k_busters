@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Voice Data</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Id</th>
+      <th>User</th>
+      <th>Voice</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @voice_data.each do |voice_datum| %>
+      <tr>
+        <td><%= voice_datum.id %></td>
+        <td><%= voice_datum.user_id %></td>
+        <td><%= voice_datum.voice %></td>
+        <td><%= link_to 'Show', voice_datum %></td>
+        <td><%= link_to 'Edit', edit_voice_datum_path(voice_datum) %></td>
+        <td><%= link_to 'Destroy', voice_datum, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Voice Datum', new_voice_datum_path %>
