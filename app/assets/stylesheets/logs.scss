@@ -37,3 +37,21 @@
 	background-position:bottom;
 }
 
+.time{
+  float:left;
+}
+
+.player{
+  float:right;
+}
+
+.datas{
+    background-color: #b1eeff;
+    padding: 2em 0;
+    margin: 2em 0;
+    border-bottom: solid 6px #3f87ce;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.25);
+    border-radius: 9px;
+    position:relarive;
+    height:100px;
+}

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <script src="js/intro.js"></script>
+    <link rel="stylesheet" href="css/introjs.css" type="text/css">
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.js"></script>
+    <script src="click.js"></script>
+  </head>
+  <body>
+   <div class="icons">
+    <script type="text/javascript">play();</script>
+    <div class="row">
+     <div class="col-12 col-md-6 col-lg-4">
+      <a href="/logs"><img src="/assets/log.jpg" data-intro="過去の記録が見れます" data-step="2" class="img-fluid mx-auto d-block"></a>
+     </div>
+     <div class="col-12 col-md-6 col-lg-4 ml-lg-auto">
+      <img src="/assets/police.jpg" data-intro="警察ボイス※音声出ます" data-step="3" class="sounds img-fluid mx-auto d-block" data-file="police">
+     </div>
+    </div>
+    <div class="row">
+     <div class="col-0 col-md-4 col-lg-4"></div>
+     <div class="col-12 col-md-4 col-lg-4">
+      <img src="/assets/microphone.jpg" data-intro="録音します" data-step="1" class="img-fluid mx-auto d-block push">
+       <span id="switch_js" class="switch-on">REC</span>
+      <div class="btn">
+       <input type="button" id="record" onclick="switch_js_on()" value="START" class="btn-primary btn-lg" />
+       <input type="button" id="stop" onclick="switch_js_off()" value="STOP" class="btn-primary btn-lg" />
+     </div>
+       <%= render 'form', voice: @voice %>
+      </div>
+     <div class="col-- col-md-4 col-lg-4"></div>
+    </div>
+    <div class="row">
+     <div class="col-12 col-md-6 col-lg-4">
+      <div  id="switch" data-intro="「録音を開始します」※音声出ます" data-step="4" class="sounds img-fluid mx-auto d-block" data-file="recordstart"></div>
+     </div>
+     <div class="col-12 col-md-6 col-lg-4 ml-lg-auto">
+      <a href="/nkoku"><img src="/assets/nkoku.png" data-intro="N国党メソッドを確認する" data-step="5" class="img-fluid mx-auto d-block"></a>
+     </div>
+    </div>
+   </div>
+   <script>
+   $(function(){
+  // $.cookieでCookieを読み込む
+  // `SampleFlg`というデータがonではない場合、チュートリアルを呼び出す
+    if ($.cookie('SampleFlg') != 'on') {
+     jQuery(function(){
+       introJs().start().onexit(function() {
+    // $.cookieの中の第一引数で書き込むデータのKEY、第二引数でValue
+    // expiresでCookieに書き込んだ値の有効期限を設定し、
+    // pathで値が有効となるパスを指定します。
+      var flg = 'on'
+      $.cookie('SampleFlg', flg,{path:'/'});
+      });
+     });
+    }
+   });
+   </script>
+   </body>
+</html>

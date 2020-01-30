@@ -78,16 +78,44 @@ function switch_js_on(){
     switch_js.set_switch_flg("on");
     switch_js.switching("switch_js");
     recorder.start();
+
+    var on_btn = document.getElementById("record");
+    on_btn.style.display ="none";
+
+    var off_btn = document.getElementById("stop");
+    off_btn.style.display ="block";
+
 }
 // offボタン押下のイベント
 function switch_js_off(){
     switch_js.set_switch_flg("off");
     recorder.stop();
+
+    var off_btn = document.getElementById("stop");
+    off_btn.style.display ="none";
+
+    var on_btn = document.getElementById("submit");
+    on_btn.style.display ="block";
+
 }
+
 
 function onRecordingReady(e) {
   var audio = document.getElementById('audio');
   // e.data contains a blob representing the recording
   audio.src = URL.createObjectURL(e.data);
   audio.play();
+
+  const reader = new FileReader();
+    reader.onload = function(){
+    const b64 = reader.result;
+     console.log(b64);
+
+    const vd = document.getElementById('voice_voice');
+    vd.value = b64;
+
+    console.log(vd.value);
+    };
+reader.readAsDataURL(e.data);
+
 }

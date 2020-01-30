@@ -1,0 +1,20 @@
+<%= form_for(@voice) do |f| %>
+  <% if @voice.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@voice.errors.count, "error") %> prohibited this voice from being saved:</h2>
+
+      <ul>
+      <% @voice.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <div class="field">
+    <input class="form-control" value="" type="hidden" name="voice[voice]" id="voice_voice">
+  </div>
+  <div class="actions">
+    <%= f.submit "保存", id:"submit", :class=>"btn1" %>
+  </div>
+<% end %>
