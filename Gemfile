@@ -76,3 +76,7 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
  gem "carrierwave"
  gem 'audiojs-rails'
  gem 'kaminari', '~> 0.17.0'
+ 
+ group :production do
+  gem 'pg'
+end
