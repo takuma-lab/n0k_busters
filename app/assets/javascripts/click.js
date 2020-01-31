@@ -104,7 +104,6 @@ function onRecordingReady(e) {
   var audio = document.getElementById('audio');
   // e.data contains a blob representing the recording
   audio.src = URL.createObjectURL(e.data);
-  audio.play();
 
   const reader = new FileReader();
     reader.onload = function(){

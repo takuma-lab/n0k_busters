@@ -29,6 +29,7 @@
       <div class="btn">
        <input type="button" id="record" onclick="switch_js_on()" value="START" class="btn-primary btn-lg" />
        <input type="button" id="stop" onclick="switch_js_off()" value="STOP" class="btn-primary btn-lg" />
+       <audio id="audio"  class="audioplay" controls></audio>
      </div>
        <%= render 'form', voice: @voice %>
       </div>
