@@ -74,7 +74,7 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
  gem 'omniauth-facebook'
  gem 'omniauth-twitter'
  gem 'omniauth-google-oauth2'
- gem "carrierwave"
+ #gem "carrierwave"
  gem 'audiojs-rails'
  gem 'kaminari', '~> 0.17.0'
 
