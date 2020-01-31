@@ -1,7 +1,7 @@
 class LogsController < ApplicationController
 
   def index
-    @voices = current_user.voices
+    @user_voices = current_user.voices.all
     @voices = Voice.page(params[:page]).per(3)
   end
 
