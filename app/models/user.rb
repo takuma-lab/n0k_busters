@@ -4,6 +4,8 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   has_many :voices
+
+  validates :email, presence: true
   
   def voices
     return Voice.where(user_id: self.id)
