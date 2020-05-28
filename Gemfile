@@ -73,6 +73,6 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
  
 
  gem 'audiojs-rails'
- gem 'kaminari', '~> 0.17.0'
+ gem 'kaminari', '~> 1.2.1'
 
  gem 'pg'
